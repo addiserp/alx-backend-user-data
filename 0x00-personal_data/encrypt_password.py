@@ -14,3 +14,12 @@ def hash_password(password: str) -> bytes:
     bpass = b'password'
     hashed = bcrypt.hashpw(bpass, bcrypt.gensalt())
     return hashed
+
+def is_valid(hashed_password: bytes, password: str) -> bool:
+    """
+        function that expects 2 arguments and returns a boolean.    
+    """
+    if bcrypt.checkpw(b'password', hashed_password):
+        return True
+    else:
+        return False
