@@ -6,10 +6,11 @@
 
 import bcrypt
 
+
 def hash_password(password: str) -> str:
     """
         returns a salted, hashed password, which is a byte string.
     """
-    bpass =b'password'
+    bpass = b'password'
     hashed = bcrypt.hashpw(bpass, bcrypt.gensalt())
     return hashed
