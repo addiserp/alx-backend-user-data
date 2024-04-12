@@ -77,10 +77,8 @@ def main():
 
 
 class RedactingFormatter(logging.Formatter):
-    """
-        Function should use a regex to replace
-        occurrences of certain field values.
-    """
+    """ Redacting Formatter class
+        """
 
     REDACTION = "***"
     FORMAT = "[HOLBERTON] %(name)s %(levelname)s %(asctime)-15s: %(message)s"
