@@ -20,7 +20,8 @@ def is_valid(hashed_password: bytes, password: str) -> bool:
     """
         function that expects 2 arguments and returns a boolean.
     """
+    ch_value = False
     if bcrypt.checkpw(b'password', hashed_password):
-        return True
+        ch_value = True
 
-    return False
+    return ch_value
