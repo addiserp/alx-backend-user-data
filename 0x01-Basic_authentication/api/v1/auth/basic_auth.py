@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-A class for Basic Authentication, inherited from Auth 
+A class for Basic Authentication, inherited from Auth
 """
 from api.v1.auth.auth import Auth
 from base64 import b64decode
@@ -10,7 +10,7 @@ from typing import TypeVar
 
 class BasicAuth(Auth):
     """
-    A Basic Authentication Class, inherited from Auth 
+    A Basic Authentication Class, inherited from Auth
     """
 
     def extract_base64_authorization_header(self,
