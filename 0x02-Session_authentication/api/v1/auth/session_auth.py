@@ -4,16 +4,16 @@ import base64
 from uuid import uuid4
 from typing import TypeVar
 
-from api.v1.auth.auth import Auth
+from .auth import Auth
 from models.user import User
 
 
 class SessionAuth(Auth):
-    """ class Session Authorization methods """
+    """ inherited class for Session Authorization protocol"""
     user_id_by_session_id = {}
 
     def create_session(self, user_id: str = None) -> str:
-        """ a Session ID for a user with id user_id
+        """ this will Create a Session ID for a user with id user_id
         Args:
             user_id (str): user's user id
         Return:
@@ -27,7 +27,7 @@ class SessionAuth(Auth):
         return str(id)
 
     def user_id_for_session_id(self, session_id: str = None) -> str:
-        """ will Return a user ID based on a session ID
+        """ this will Return a user ID based on a session ID
         Args:
             session_id (str): session ID
         Return:
@@ -50,7 +50,7 @@ class SessionAuth(Auth):
         return user
 
     def destroy_session(self, request=None):
-        """ will Deletes a user session """
+        """ will Delete a user from a session """
         if request is None:
             return False
         session_cookie = self.session_cookie(request)
