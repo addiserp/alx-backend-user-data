@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Class for Auth
+""" Class for authentication
 """
 from flask import request
 
@@ -8,6 +8,7 @@ class Auth:
     """
         A class simple API authentication
     """
+
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """
             A method that handles require auth
