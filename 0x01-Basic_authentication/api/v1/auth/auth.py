@@ -9,6 +9,9 @@ class Auth:
         A class simple API authentication
     """
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
+        """
+            A method that handles require auth
+        """
         if path is None or excluded_paths is None or excluded_paths == []:
             return True
 
