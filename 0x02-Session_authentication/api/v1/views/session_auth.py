@@ -8,7 +8,7 @@ from models.user import User
 
 @app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
 def auth_session():
-    """ Handle user login
+    """ this will Handles user login
     Return:
         dictionary representation of user if found else error message
     """
@@ -36,7 +36,7 @@ def auth_session():
                  strict_slashes=False)
 def handle_logout():
     """
-    Handle user logout
+    this will Handle user logout
     """
     from api.v1.app import auth
     if auth.destroy_session(request):
