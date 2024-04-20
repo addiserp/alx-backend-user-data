@@ -11,7 +11,8 @@ from typing import (
 class Auth:
     """ MAin class for API authentication """
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
-        """ This will Determine whether a given path requires authentication or not
+        """ This will Determine whether a given path requires
+        authentication or not
         Args:
             - path(str): Url path to be checked
             - excluded_paths(List of str): List of paths that do not require
@@ -46,7 +47,8 @@ class Auth:
         return header
 
     def current_user(self, request=None) -> TypeVar('User'):
-        """ this will Return a User instance from information from a request object """
+        """ this will Return a User instance from information
+        from a request object """
         return None
 
     def session_cookie(self, request=None):
