@@ -4,7 +4,7 @@ import base64
 from uuid import uuid4
 from typing import TypeVar
 
-from .auth import Auth
+from api.v1.auth.auth import Auth
 from models.user import User
 
 
