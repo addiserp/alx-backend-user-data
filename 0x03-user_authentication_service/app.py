@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
     A Flask app that has a single GET route ("/") and use flask.
     jsonify to return a JSON payload of the form:
