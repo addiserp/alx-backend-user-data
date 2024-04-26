@@ -19,3 +19,11 @@ def _hash_password(password: str) -> str:
     """
     hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
     return hashed
+
+
+def _generate_uuid() -> str:
+    """
+    will return a string representation of a new UUID
+    """
+    UUID = uuid4()
+    return str(UUID)
