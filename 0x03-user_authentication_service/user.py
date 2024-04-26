@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-A class User for ORM
+    create a SQLAlchemy model named User for a database table named users.
 """
 
 from sqlalchemy import Column, Integer, String
@@ -10,7 +10,7 @@ Base = declarative_base()
 
 class User(Base):
     """
-    The representation of a user
+        Class Representation a database table named users
     """
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
