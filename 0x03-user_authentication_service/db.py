@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-    the DB class provided below to implement the add_user method.
+The database for ORM
 """
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -26,8 +26,9 @@ class DB:
         self.__session = None
 
     @property
-    def _session(self) -> Session:
-        """Memoized session object
+    def _session(self):
+        """
+        Session Getter Method
         """
         if self.__session is None:
             DBSession = sessionmaker(bind=self._engine)
@@ -36,8 +37,7 @@ class DB:
 
     def add_user(self, email: str, hashed_password: str) -> User:
         """
-        the add_user method, which has two
-        required string arguments: email and hashed_password
+        It adds user to database
         Return: User Object
         """
         user = User(email=email, hashed_password=hashed_password)
@@ -48,7 +48,7 @@ class DB:
 
     def find_user_by(self, **kwargs) -> User:
         """
-        this will find a user by key word args
+        It finds user by key word args
         Return: First row found in the users table as filtered by kwargs
         """
         if not kwargs:
@@ -68,7 +68,7 @@ class DB:
 
     def update_user(self, user_id: int, **kwargs) -> None:
         """
-        will update users attributes
+        It updates users attributes
         Returns: None
         """
         user = self.find_user_by(id=user_id)
