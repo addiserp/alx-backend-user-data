@@ -13,12 +13,12 @@ from user import Base, User
 
 class DB:
     """
-    DB Class for Object Reational Mapping
+        DB class provided below to implement the add_user method.
     """
 
     def __init__(self):
         """
-        Constructor Method
+        Intializ DB class
         """
         self._engine = create_engine("sqlite:///a.db", echo=False)
         Base.metadata.drop_all(self._engine)
@@ -28,7 +28,7 @@ class DB:
     @property
     def _session(self):
         """
-        Session Getter Method
+        The Session Create Method
         """
         if self.__session is None:
             DBSession = sessionmaker(bind=self._engine)
@@ -37,7 +37,7 @@ class DB:
 
     def add_user(self, email: str, hashed_password: str) -> User:
         """
-        It adds user to database
+        This Will add a user to database
         Return: User Object
         """
         user = User(email=email, hashed_password=hashed_password)
@@ -48,7 +48,7 @@ class DB:
 
     def find_user_by(self, **kwargs) -> User:
         """
-        It finds user by key word args
+        This Will find a user by key word args
         Return: First row found in the users table as filtered by kwargs
         """
         if not kwargs:
@@ -68,7 +68,7 @@ class DB:
 
     def update_user(self, user_id: int, **kwargs) -> None:
         """
-        It updates users attributes
+        This Will update users attributes
         Returns: None
         """
         user = self.find_user_by(id=user_id)
