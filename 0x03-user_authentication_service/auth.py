@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
-    a _hash_password method that takes in a password
-    string arguments and returns bytes.
+An authentication Module
 """
 
 import bcrypt
@@ -14,8 +13,7 @@ from uuid import uuid4
 
 def _hash_password(password: str) -> str:
     """
-    a _hash_password method that takes in
-    a password string arguments and returns bytes.
+    It returns a salted hash of the input password
     """
     hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
     return hashed
@@ -23,7 +21,7 @@ def _hash_password(password: str) -> str:
 
 def _generate_uuid() -> str:
     """
-    will return a string representation of a new UUID
+    It returns a string representation of a new UUID
     """
     UUID = uuid4()
     return str(UUID)
@@ -31,7 +29,7 @@ def _generate_uuid() -> str:
 
 class Auth:
     """
-    the authentication database to interact with user.
+    Auth class to interact with the authentication database.
     """
 
     def __init__(self):
@@ -39,7 +37,7 @@ class Auth:
 
     def register_user(self, email: str, password: str) -> User:
         """
-        this will registers a user in the database
+        It registers a user in the database
         Returns: User Object
         """
 
@@ -56,7 +54,7 @@ class Auth:
 
     def valid_login(self, email: str, password: str) -> bool:
         """
-        this will check If password is valid returns true, else, false
+        If password is valid returns true, else, false
         """
         try:
             user = self._db.find_user_by(email=email)
@@ -73,7 +71,7 @@ class Auth:
 
     def create_session(self, email: str) -> str:
         """
-        this will returns session ID for a user
+        It returns session ID for a user
         """
         try:
             user = self._db.find_user_by(email=email)
@@ -88,7 +86,7 @@ class Auth:
 
     def get_user_from_session_id(self, session_id: str) -> Union[str, None]:
         """
-        this will take a single session_id string argument
+        It takes a single session_id string argument
         Returns a string or None
         """
         if session_id is None:
@@ -103,7 +101,7 @@ class Auth:
 
     def destroy_session(self, user_id: int) -> None:
         """
-        this will update the corresponding user's session ID to None
+        It updates the corresponding user's session ID to None
         """
         try:
             user = self._db.find_user_by(id=user_id)
@@ -116,7 +114,7 @@ class Auth:
 
     def get_reset_password_token(self, email: str) -> str:
         """
-        this will generates a reset password token if user exists
+        It generates a reset password token if user exists
         """
         try:
             user = self._db.find_user_by(email=email)
@@ -131,7 +129,7 @@ class Auth:
 
     def update_password(self, reset_token: str, password: str) -> None:
         """
-        this will use a reset token to validate update of users password
+        It uses reset token to validate update of users password
         """
         if reset_token is None or password is None:
             return None
